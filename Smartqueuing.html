@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 340px; /* Increased height to accommodate adjustments */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="Name"],
+        input[type="tel"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="Name"] {
+            margin-bottom: 10px; /* Added margin for spacing */
+            width: 250px;
+        }
+
+        .phone-input {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .flag-box {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            background: white;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            margin-right: 5px;
+        }
+
+        .flag-box img {
+            width: 15px;
+            height: auto;
+            margin-right: 3px;
+        }
+
+        .flag-box span {
+            font-size: 16px;
+            line-height: 25px; /* Centering text */
+            display: flex;
+            align-items: center; /* Center vertically */
+        }
+
+        .tel-input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+            height: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px; /* Increased margin to lower the button */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Join the Queue</h2>
+        <form>
+            <div class="input-group">
+                <label for="Name">Name:</label>
+                <input type="Name" id="Name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number:</label>
+                <div class="phone-input">
+                    <div class="flag-box">
+                        <img src="flag.png" alt="Philippine Flag">
+                        <span>+63</span>
+                    </div>
+                    <input type="tel" class="tel-input" id="phone" name="phone" placeholder="9123456789" required>
+                </div>
+            </div>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+    <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Handle the form submission logic here
+        const phoneInput = document.getElementById('phone').value;
+            if (phoneInput.length !== 10) {
+                alert('Please enter a valid 10-digit phone number.');
+            } else {
+                // Redirect to services page
+                window.location.href = 'client.html';
+            }
+    });
+</script>
+</body>
+</html>
